@@ -1,0 +1,30 @@
+﻿<Window x:Class="AnimationStoryBoard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Canvas>
+        <Rectangle x:Name="rect1" Width="39" Height="60" Fill="Blue" Canvas.Top="10">
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Rectangle.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
+                  Storyboard.TargetName="rect1"
+                  Storyboard.TargetProperty="Width"
+                  From="0" To="200" Duration="0:0:5" 
+                  RepeatBehavior="Forever" AutoReverse="True" SpeedRatio="0.5"/>
+                                <DoubleAnimation 
+                  Storyboard.TargetName="rect1"
+                  Storyboard.TargetProperty="Height"
+                  From="0" To="200" Duration="0:0:5" 
+                  RepeatBehavior="Forever" AutoReverse="True" SpeedRatio="0.5"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
+       
+    </Canvas>
+</Window>

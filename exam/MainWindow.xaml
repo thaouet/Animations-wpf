@@ -1,0 +1,112 @@
+﻿<Window x:Class="exam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="765">
+
+    <Canvas>
+
+        <Polygon x:Name="chassis"
+    Points="0,100 150,100 75,150"
+    Stroke="Purple" 
+    StrokeThickness="2">
+            <Polygon.Fill>
+                <SolidColorBrush Color="Red" Opacity="0.4"/>
+            </Polygon.Fill>
+        </Polygon>
+
+        <Rectangle Fill ="Gray" Width="750" Height="6" Canvas.Top="203"/>
+        <Ellipse x:Name="ellipse1" Width="50" Height="50" Stroke="Blue" Canvas.Top="157" Canvas.Left="0">
+            <Ellipse.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="Blue" Offset="0.5"/>
+                    <GradientStop Color="#FFF0F754" Offset="0.493"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.RenderTransform>
+                <RotateTransform CenterX="25" CenterY="25"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Button  x:Name="btnBegin" Content="Begin" Canvas.Left="16" Canvas.Top="10" Width="102" Height="35"/>
+        <Button x:Name="btnPause" Content="Pause" Canvas.Left="150" Canvas.Top="10" Width="87" Height="35"/>
+        <Button Name="btnResume" Content="Resume" Canvas.Left="259" Canvas.Top="10" Width="90" Height="35"/>
+        <Button Name="btnSkipToFill" Content="SkipToFill" Canvas.Left="375" Canvas.Top="10" Width="136" Height="35"/>
+        <Path  x:Name="roue1"  Stroke="Blue" StrokeThickness="2" Height="50" Stretch="Fill" Width="50" RenderTransformOrigin="0.5,0.5" Canvas.Left="50" Canvas.Top="157">
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Blue" Offset="0.5"/>
+                    <GradientStop Color="#FF26E649" Offset="0.5"/>
+
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <RotateTransform CenterX="0" CenterY="0"/>
+            </Path.RenderTransform>
+            <Path.Data>
+                <GeometryGroup FillRule="EvenOdd">
+                    <EllipseGeometry RadiusX="50" RadiusY="50" Center="120,120"/>
+                    <EllipseGeometry RadiusX="30" RadiusY="30" Center="120,120"/>
+                </GeometryGroup>
+            </Path.Data>
+        </Path>
+
+
+        <Ellipse x:Name="ellipse2" Width="50" Height="50" Stroke="Blue" Canvas.Top="157" Canvas.Left="100" StrokeThickness="2">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Blue" Offset="0.5"/>
+                    <GradientStop Color="#FF26E649" Offset="0.5"/>
+
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.RenderTransform>
+                <RotateTransform CenterX="25" CenterY="25"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Canvas.Triggers>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnBegin">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Name="MyBeginStoryboard">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="ellipse1" 
+                Storyboard.TargetProperty="(Canvas.Left)"
+                From="0" To="600" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="roue1" 
+                Storyboard.TargetProperty="(Canvas.Left)"
+                From="50" To="650" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="chassis" 
+                Storyboard.TargetProperty="(Canvas.Left)"
+                From="0" To="600" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+
+                            <ColorAnimation Storyboard.TargetName="chassis" From="Yellow" To="Red" Storyboard.TargetProperty="(Polygon.Fill).(SolidColorBrush.Color)" FillBehavior="Stop" Duration="0:0:1" RepeatBehavior="Forever" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="roue1" 
+                Storyboard.TargetProperty="(Ellipse.RenderTransform).(RotateTransform.Angle)"
+                From="0" To="600" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="ellipse1" 
+                Storyboard.TargetProperty="(Ellipse.RenderTransform).(RotateTransform.Angle)"
+                From="0" To="600" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+
+                            <DoubleAnimation Storyboard.TargetName="ellipse2" 
+                Storyboard.TargetProperty="(Canvas.Left)"
+                From="100" To="700" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+
+                            <DoubleAnimation Storyboard.TargetName="ellipse2" 
+                Storyboard.TargetProperty="(Ellipse.RenderTransform).(RotateTransform.Angle)"
+                From="100" To="700" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnPause">
+                <PauseStoryboard BeginStoryboardName="MyBeginStoryboard" />
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnResume">
+                <ResumeStoryboard BeginStoryboardName="MyBeginStoryboard" />
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnSkipToFill">
+                <SkipStoryboardToFill BeginStoryboardName="MyBeginStoryboard" />
+            </EventTrigger>
+        </Canvas.Triggers>
+    </Canvas>
+
+
+</Window>

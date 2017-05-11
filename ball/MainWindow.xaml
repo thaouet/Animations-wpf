@@ -1,0 +1,53 @@
+﻿<Window x:Class="ball.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="750">
+
+    <Canvas>
+
+
+        <Rectangle Fill ="Gray" Width="750" Height="6" Canvas.Top="203"/>
+        <Ellipse x:Name="ellipse1" Width="110" Height="110" Stroke="Blue" Canvas.Top="93" Canvas.Left="0">
+            <Ellipse.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="Blue" Offset="0.5"/>
+                    <GradientStop Color="LightBlue" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.RenderTransform>
+                <RotateTransform CenterX="55" CenterY="55"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Button  x:Name="btnBegin" Content="Begin" Canvas.Left="152" Canvas.Top="10" Width="102" Height="35"/>
+        <Button x:Name="btnPause" Content="Pause" Canvas.Left="286" Canvas.Top="10" Width="87" Height="35"/>
+        <Button Name="btnResume" Content="Resume" Canvas.Left="395" Canvas.Top="10" Width="90" Height="35"/>
+        <Button Name="btnSkipToFill" Content="SkipToFill" Canvas.Left="511" Canvas.Top="10" Width="136" Height="35"/>
+        <Canvas.Triggers>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnBegin">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Name="MyBeginStoryboard">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="ellipse1" 
+                Storyboard.TargetProperty="(Canvas.Left)"
+                From="0" To="640" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+
+                            <DoubleAnimation Storyboard.TargetName="ellipse1" 
+                Storyboard.TargetProperty="(Ellipse.RenderTransform).(RotateTransform.Angle)"
+                From="0" To="640" Duration="0:0:5" RepeatBehavior="10x" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnPause">
+            <PauseStoryboard BeginStoryboardName="MyBeginStoryboard" />
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnResume">
+                <ResumeStoryboard BeginStoryboardName="MyBeginStoryboard" />
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.Click" SourceName="btnSkipToFill">
+                <SkipStoryboardToFill BeginStoryboardName="MyBeginStoryboard" />
+            </EventTrigger>
+        </Canvas.Triggers>
+    </Canvas>
+
+</Window>
