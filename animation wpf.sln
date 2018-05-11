@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ball", "ball\ball.csproj", "{874AE689-32B4-4A4C-9AE2-529307BF4B3C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animationSimple", "animationSimple\animationSimple.csproj", "{86B1E856-435D-4A90-A72D-1AD2172DE4B4}"
@@ -12,10 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathAnimation", "PathAnimation\PathAnimation.csproj", "{7DF38FF3-E4C0-4B7F-9C60-6FC2F2EA0972}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageCle", "ImageCle\ImageCle.csproj", "{8D6AFC89-7B53-414F-90BB-CF11362B9EFF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam", "exam\exam.csproj", "{4728F41B-5732-49AF-8A9B-7264FEB96FC9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exam1", "exam1\exam1.csproj", "{2F51D888-6912-46F8-8353-0CAA997B94FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,14 +45,6 @@ Global
 		{8D6AFC89-7B53-414F-90BB-CF11362B9EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D6AFC89-7B53-414F-90BB-CF11362B9EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D6AFC89-7B53-414F-90BB-CF11362B9EFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4728F41B-5732-49AF-8A9B-7264FEB96FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4728F41B-5732-49AF-8A9B-7264FEB96FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4728F41B-5732-49AF-8A9B-7264FEB96FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4728F41B-5732-49AF-8A9B-7264FEB96FC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F51D888-6912-46F8-8353-0CAA997B94FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F51D888-6912-46F8-8353-0CAA997B94FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F51D888-6912-46F8-8353-0CAA997B94FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F51D888-6912-46F8-8353-0CAA997B94FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

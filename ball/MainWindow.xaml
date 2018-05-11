@@ -38,8 +38,9 @@
                     </BeginStoryboard>
                 </EventTrigger.Actions>
             </EventTrigger>
+
             <EventTrigger RoutedEvent="Button.Click" SourceName="btnPause">
-            <PauseStoryboard BeginStoryboardName="MyBeginStoryboard" />
+                <PauseStoryboard BeginStoryboardName="MyBeginStoryboard" />
             </EventTrigger>
             <EventTrigger RoutedEvent="Button.Click" SourceName="btnResume">
                 <ResumeStoryboard BeginStoryboardName="MyBeginStoryboard" />
